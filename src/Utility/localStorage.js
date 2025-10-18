@@ -1,4 +1,7 @@
+import Toastify from 'toastify-js'
+import "toastify-js/src/toastify.css"
 // get data 
+
 export const loadInstallApp = () => {
     try {
         const data = localStorage.getItem('installList')
@@ -19,13 +22,20 @@ export const updateList = (app) => {
         const isRepeat = installList.some(p => p.id === app.id);
         const updateInstallList = [...installList, app]
         if (isRepeat) {
-            return alert('this apk already install');
+            return alert('This App Already Install');
         }
         localStorage.setItem('installList', JSON.stringify(updateInstallList))
     }
     catch (err) {
         console.log(err)
     }
+    return Toastify({
+        text: "App Install Successfully!",
+        duration: 2000,
+        gravity: "top", // top or bottom
+        position: "center", // left, center or right
+        backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
+    }).showToast();
 
 }
 
@@ -42,3 +52,5 @@ export const handleRemoveUnInstall = (id) => {
         console.log(err)
     }
 }
+
+

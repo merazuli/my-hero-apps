@@ -32,7 +32,7 @@ const AppDetails = () => {
         ?.reverse();
 
     return (
-        <div className="bg-[#D9D9D9] shadow-sm p-5 rounded-2xl mb-20">
+        <div className="bg-slate-200 shadow-sm p-5 rounded-2xl mb-20">
             <div className="flex flex-col md:flex-row gap-5">
                 <figure className="w-full md:w-1/3 flex justify-center items-center">
                     <img
