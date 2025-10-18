@@ -1,19 +1,23 @@
 import React from 'react';
 import useApp from '../Hooks/useApp';
 import AppCards from '../Components/AppCards';
+import { FaGooglePlay } from "react-icons/fa";
+import { FaAppStoreIos } from "react-icons/fa";
+import { Link } from 'react-router';
 
 const Home = () => {
     const { apps } = useApp();
     const trendingApps = apps.slice(0, 8);
     return (
-        <div className='bg-[#D2D2D2]'>
+        <div className='bg-slate-100'>
             <div className='text-center '>
                 <h1 className='text-3xl font-bold py-10'> We Build <br /><span className='text-purple-600'>Productive</span> Apps</h1>
                 <p>At HERO.IO, we craft innovative apps designed to make everyday life simpler, smarter, and more exciting. <br />
                     Our goal is to turn your ideas into digital experiences that truly make an impact.</p>
-                <div className='space-x-[100px] pt-8'>
-                    <button className='btn btn-outline'>Google Play</button>
-                    <button className='btn btn-outline'>App Store</button>
+                <div className='space-x-[100px] pt-8 '>
+                    <Link target='blank' to="https://play.google.com/store/apps?hl=en" className='btn btn-outline text-xl hover:bg-green-600'><FaGooglePlay className='text-green-500' />
+                        Google Play</Link>
+                    <Link target='blank' to="https://www.apple.com/app-store/" className='btn btn-outline text-xl hover:bg-green-600'><FaAppStoreIos className='text-blue-400' />App Store</Link>
                 </div>
                 <img className='mx-auto mt-10' src="https://i.ibb.co.com/Dgb0zs04/hero.png" alt="" />
                 <div className='bg-purple-500 text-white font-bold'>

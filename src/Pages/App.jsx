@@ -24,7 +24,7 @@ const App = () => {
                 </label>
             </div>
             {/* app  */}
-            <div className='grid grid-cols-4 gap-5 mt-5 px-30'>
+            <div className='grid lg:grid-cols-4 gap-5 mt-5 lg:px-30 '>
                 {
                     searchedApps.map(app => <AppCards key={app.id} app={app}></AppCards>)
                 }
