@@ -55,6 +55,7 @@ const Home = () => {
                     }
 
                 </div>
+                <Link to="/app" className='btn text-white hover:bg-yellow-500 text-center bg-purple-600 mb-5'>Show All</Link>
             </div>
 
         </div>
