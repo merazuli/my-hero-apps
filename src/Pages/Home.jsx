@@ -4,9 +4,10 @@ import AppCards from '../Components/AppCards';
 import { FaGooglePlay } from "react-icons/fa";
 import { FaAppStoreIos } from "react-icons/fa";
 import { Link } from 'react-router';
+import SkeletonSpinner from '../Spinner/SkeletonSpinner';
 
 const Home = () => {
-    const { apps } = useApp();
+    const { apps, loading } = useApp();
     const trendingApps = apps.slice(0, 8);
     return (
         <div className='bg-slate-100'>
@@ -45,11 +46,13 @@ const Home = () => {
                 <div className='py-10 max-w-7xl mx-auto'>
                     <h1 className='text-3xl font-bold'>Trending Apps</h1>
                     <p>Explore All Trending Apps on the Market developed by us</p>
-                    <div className='grid lg:grid-cols-4 gap-8 pt-10'>
-                        {
-                            trendingApps.map(app => <AppCards key={app.id} app={app}></AppCards>)
-                        }
-                    </div>
+                    {
+                        loading ? <SkeletonSpinner></SkeletonSpinner> : <div className='grid lg:grid-cols-4 gap-8 pt-10'>
+                            {
+                                trendingApps.map(app => <AppCards key={app.id} app={app}></AppCards>)
+                            }
+                        </div>
+                    }
 
                 </div>
             </div>

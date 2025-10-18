@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import useApp from '../Hooks/useApp';
 import AppCards from '../Components/AppCards';
+import SkeletonSpinner from '../Spinner/SkeletonSpinner';
 
 const App = () => {
     const { apps, loading } = useApp();
     const [search, setSearch] = useState('');
-    if (loading) return <p className='text-center py-10 text-5xl'>Loading...</p>;
+    // if (loading) return <p className='text-center py-10 text-5xl'>Loading...</p>;
     const convertToLowerCase = search.trim().toLocaleLowerCase();
     const searchedApps = convertToLowerCase ? apps.filter(app => app.title?.toLocaleLowerCase().includes(convertToLowerCase)) : apps;
 
@@ -24,12 +25,13 @@ const App = () => {
                 </label>
             </div>
             {/* app  */}
-            <div className='grid lg:grid-cols-4 gap-5 mt-5 lg:px-30 '>
-                {
-                    searchedApps.map(app => <AppCards key={app.id} app={app}></AppCards>)
-                }
-
-            </div>
+            {
+                loading ? <SkeletonSpinner count={8}></SkeletonSpinner> : <div className='grid lg:grid-cols-4 gap-5 mt-5 lg:px-30 '>
+                    {
+                        searchedApps.map(app => <AppCards key={app.id} app={app}></AppCards>)
+                    }
+                </div>
+            }
         </div>
     );
 };

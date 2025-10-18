@@ -9,7 +9,7 @@ const Installation = () => {
     const [sortOrder, setSortOrder] = useState('');
     // console.log(installApps)
 
-    if (!installApps.length) return <p className='text-3xl text-red-600 font-bold text-center my-94'> No Data Available</p>
+    if (!installApps.length) return <p className='text-3xl text-red-600 font-bold text-center my-94'> No Data Available Here </p>
     const sortItems = () => {
         if (sortOrder === "size-asc") {
             return [...installApps].sort((a, b) => a.size - b.size)

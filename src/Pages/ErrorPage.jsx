@@ -8,7 +8,7 @@ const ErrorPage = () => {
                 <img className=' mt-20' src="https://i.ibb.co.com/DD3ywm7Z/error-404.png" alt="" />
                 <h1 className='text-2xl text-center'>Oops,Page Not Found</h1>
                 <p className='text-center'>The page you are looking for is not available.</p>
-                <Link to="/app" className='btn btn-primary ml-40 mb-5'>Go Back</Link>
+                <Link to="/app" className='btn bg-green-800 px-10 text-white ml-40 mb-5 hover:bg-yellow-600'>Go Back</Link>
             </div>
         </div>
     );
