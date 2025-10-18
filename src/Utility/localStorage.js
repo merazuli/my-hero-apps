@@ -32,8 +32,8 @@ export const updateList = (app) => {
     return Toastify({
         text: "App Install Successfully!",
         duration: 2000,
-        gravity: "top", // top or bottom
-        position: "center", // left, center or right
+        gravity: "top",
+        position: "center",
         backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
     }).showToast();
 

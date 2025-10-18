@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import { handleRemoveUnInstall, loadInstallApp } from '../Utility/localStorage';
 import { MdOutlineFileDownload } from 'react-icons/md';
 import { GiFlowerStar } from 'react-icons/gi';
-import { BiLike } from 'react-icons/bi';
-
+import Toastify from 'toastify-js'
+import "toastify-js/src/toastify.css"
 const Installation = () => {
     const [installApps, setInstallApps] = useState(() => loadInstallApp());
     const [sortOrder, setSortOrder] = useState('');
     // console.log(installApps)
 
-    if (!installApps.length) return <p className='text-3xl text-red-600 font-bold text-center my-94'> No Data Available Here </p>
+    if (!installApps.length) return <p className='text-3xl text-red-600 font-bold text-center my-78'> No Data Available Here </p>
     const sortItems = () => {
         if (sortOrder === "size-asc") {
             return [...installApps].sort((a, b) => a.size - b.size)
@@ -26,6 +26,13 @@ const Installation = () => {
     const handleUninstall = (id) => {
         handleRemoveUnInstall(id);
         setInstallApps(prev => prev.filter(p => p.id !== id));
+        return Toastify({
+            text: "App Uninstall Successfully!",
+            duration: 2000,
+            gravity: "top",
+            position: "center",
+            backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
+        }).showToast();
 
     }
 
